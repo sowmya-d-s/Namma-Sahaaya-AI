@@ -1,0 +1,161 @@
+<body>
+
+<div class="container">
+
+    <div class="logo-section">
+
+        <img src="{{ url_for('static', filename='image.png') }}"
+             alt="Namma Sahaaya AI Logo"
+             class="logo">
+
+        <h1>Namma Sahaaya AI</h1>
+
+        <h2>Voice-Powered Kannada Digital Literacy Assistant</h2>
+
+    </div>
+
+    <p class="intro">
+        Helping Kannada speakers understand banking alerts,
+        UPI payments, government notifications and smartphone technology.
+    </p>
+
+    <hr>
+
+    <div class="section">
+
+        <h3>🌟 Who Can Benefit?</h3>
+
+        <div class="features">
+
+            <div class="feature-box">👴 Senior Citizens</div>
+
+            <div class="feature-box">🌾 Farmers</div>
+
+            <div class="feature-box">🏡 Rural Users</div>
+
+            <div class="feature-box">📱 First-Time Smartphone Users</div>
+
+        </div>
+
+    </div>
+
+    <hr>
+
+    <div class="section">
+
+        <h3>🎯 Problem We Solve</h3>
+
+        <div class="card">
+
+            Many Kannada-speaking users struggle to understand
+            banking alerts, government messages, digital payments,
+            UPI notifications and smartphone settings.
+
+        </div>
+
+    </div>
+
+    <hr>
+
+    <div class="section">
+
+        <h3>💡 Try These Examples</h3>
+
+        <div class="card">
+
+            📱 UPI PIN ಅಂದರೆ ಏನು?<br><br>
+
+            🏦 KYC ಅಂದರೆ ಏನು?<br><br>
+
+            📶 ವೈಫೈ ಹೇಗೆ ಆನ್ ಮಾಡುವುದು?
+
+        </div>
+
+    </div>
+
+    <hr>
+
+    <h3>🎤 Upload Kannada Voice</h3>
+
+    <form action="/process"
+          method="POST"
+          enctype="multipart/form-data">
+
+        <input type="file" name="audio" required>
+
+        <br><br>
+
+        <button type="submit">
+            Ask AI
+        </button>
+
+    </form>
+
+    <hr>
+
+    <h3>📩 SMS Explainer</h3>
+
+    <form action="/sms" method="POST">
+
+        <textarea
+            name="sms"
+            rows="5"
+            placeholder="Paste banking or government SMS here..."></textarea>
+
+        <br><br>
+
+        <button type="submit">
+            Explain SMS
+        </button>
+
+    </form>
+
+    <h3>SMS Explanation</h3>
+
+    <div class="result-box">
+        {{ sms_answer }}
+    </div>
+
+    <hr>
+
+    <h3>📝 Transcript</h3>
+
+    <div class="result-box">
+        {{ transcript }}
+    </div>
+
+    <h3>🤖 AI Explanation</h3>
+
+    <div class="result-box">
+        {{ answer }}
+    </div>
+
+    <h3>🔊 Voice Response</h3>
+
+    <audio controls>
+        <source
+            src="{{ url_for('static', filename='response.wav') }}"
+            type="audio/wav">
+    </audio>
+
+    <hr>
+
+    <div class="footer">
+
+        <p>
+            Built using Prisma Speech-to-Text & Timbre Text-to-Speech
+        </p>
+
+        <p>
+            Great Indian AI Internship Challenge
+        </p>
+
+        <p>
+            Developed by Sowmya
+        </p>
+
+    </div>
+
+</div>
+
+</body>
